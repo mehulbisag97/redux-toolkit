@@ -7,7 +7,7 @@ import { ToastsStore } from "react-toasts";
 
 const DisplayUsers = () => {
   const data = useSelector((state) => state.users);
-  console.log("data:", data);
+  console.log(" data:", data);
   const dispatch = useDispatch();
   const [edit, setEdit] = useState(false);
   const [value, setValue] = useState();
@@ -35,7 +35,6 @@ const DisplayUsers = () => {
         {data.length > 0 ? (
           <div>
             {data.map((user, id) => {
-              console.log(" user:", user, id);
               return (
                 <li key={id}>
                   {edit === id ? (
@@ -46,7 +45,6 @@ const DisplayUsers = () => {
                           value={value}
                           onChange={(e) => handleChange(e)}
                           className="input"
-                          style={{}}
                         />
                       </form>
                     </>
@@ -78,7 +76,7 @@ const DisplayUsers = () => {
             })}
           </div>
         ) : (
-          "No Records Found"
+          <h3 className="text">No Records Found</h3>
         )}
       </Wrapper>
     </>
@@ -122,6 +120,9 @@ const Wrapper = styled.section`
     font-family: sans-serif;
     margin-left: 15px;
     font-weight: bold;
+  }
+  .text {
+    margin: 10px;
   }
 `;
 export default DisplayUsers;
